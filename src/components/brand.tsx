@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
+import { SwanGlyph } from "@/components/swan";
 
-/** Aegis shield wordmark. */
+/** Black Swan glyph wordmark. */
 export function Logo({
   className,
   withWordmark = true,
@@ -10,35 +11,10 @@ export function Logo({
 }) {
   return (
     <span className={cn("flex items-center gap-2.5", className)}>
-      <svg
-        viewBox="0 0 32 36"
-        fill="none"
-        aria-hidden="true"
-        className="size-7"
-      >
-        <defs>
-          <linearGradient id="logoFill" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="oklch(0.86 0.045 350)" />
-            <stop offset="55%" stopColor="oklch(0.64 0.23 295)" />
-            <stop offset="100%" stopColor="oklch(0.52 0.15 351)" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M16 1 30 7v11c0 9.5-6 14.5-14 18C8 32.5 2 27.5 2 18V7L16 1Z"
-          fill="oklch(0.64 0.23 295 / 0.12)"
-          stroke="url(#logoFill)"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M16 10v14M11 17h10"
-          stroke="url(#logoFill)"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-        />
-      </svg>
+      <SwanGlyph className="size-7" />
       {withWordmark && (
         <span className="font-display text-lg font-semibold tracking-tight text-foreground">
-          Aegis
+          Black Swan
         </span>
       )}
     </span>

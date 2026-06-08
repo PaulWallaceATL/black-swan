@@ -78,7 +78,7 @@ export function RiskScanner({ className }: { className?: string }) {
         className
       )}
       role="img"
-      aria-label={`Aegis live risk scan demonstration showing a ${frame.band.toLowerCase()} misogyny risk score of ${frame.score} out of 100.`}
+      aria-label={`Black Swan live risk scan demonstration showing a ${frame.band.toLowerCase()} misogyny risk score of ${frame.score} out of 100.`}
     >
       {/* Header */}
       <div className="flex items-center justify-between gap-3">
@@ -88,7 +88,7 @@ export function RiskScanner({ className }: { className?: string }) {
           </span>
           <div className="leading-tight">
             <p className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground">
-              Aegis Engine
+              Black Swan Engine
             </p>
             <p className="text-sm font-medium text-foreground">
               Live risk scan

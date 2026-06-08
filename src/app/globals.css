@@ -12,7 +12,7 @@
   --font-heading: var(--font-display);
   --font-display: var(--font-display);
 
-  /* Aegis brand palette */
+  /* Black Swan brand palette */
   --color-ink: var(--ink);
   --color-ink-deep: var(--ink-deep);
   --color-aubergine: var(--aubergine);
@@ -242,7 +242,7 @@
   }
 
   /* Fine-line grid system */
-  .aegis-grid {
+  .swan-grid {
     background-image:
       linear-gradient(to right, oklch(0.7 0.04 320 / 0.06) 1px, transparent 1px),
       linear-gradient(to bottom, oklch(0.7 0.04 320 / 0.06) 1px, transparent 1px);
@@ -260,7 +260,7 @@
   }
 
   /* Subtle noise texture overlay */
-  .aegis-noise {
+  .swan-noise {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   }
 
@@ -290,6 +290,45 @@
     color: transparent;
     animation: shimmer 7s linear infinite;
   }
+}
+
+/* Swan loader animations */
+@keyframes swan-flap {
+  0%,
+  100% {
+    transform: rotate(-9deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
+.swan-wing {
+  animation: swan-flap 0.66s ease-in-out infinite;
+}
+
+@keyframes swan-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+.swan-bob {
+  animation: swan-bob 1.4s ease-in-out infinite;
+}
+
+@keyframes loader-sweep {
+  0% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+.loader-sweep {
+  animation: loader-sweep 1.25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

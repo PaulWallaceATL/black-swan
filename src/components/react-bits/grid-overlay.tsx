@@ -6,7 +6,7 @@ export function GridOverlay({ className }: { className?: string }) {
     <div
       aria-hidden="true"
       className={cn(
-        "pointer-events-none absolute inset-0 -z-10 aegis-grid",
+        "pointer-events-none absolute inset-0 -z-10 swan-grid",
         className
       )}
     />

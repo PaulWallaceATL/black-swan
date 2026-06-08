@@ -19,15 +19,15 @@ const ROWS: {
   capability: string;
   keyword: Level;
   generic: Level;
-  aegis: Level;
+  blackSwan: Level;
 }[] = [
-  { capability: "Context-aware", keyword: "no", generic: "partial", aegis: "yes" },
-  { capability: "Severity-aware", keyword: "no", generic: "partial", aegis: "yes" },
-  { capability: "Pattern-aware (cross-message)", keyword: "no", generic: "no", aegis: "yes" },
-  { capability: "Dataset & bias auditing", keyword: "no", generic: "no", aegis: "yes" },
-  { capability: "Coded / euphemistic detection", keyword: "no", generic: "partial", aegis: "yes" },
-  { capability: "Governance-ready audit trail", keyword: "partial", generic: "no", aegis: "yes" },
-  { capability: "Built for gendered harm", keyword: "no", generic: "no", aegis: "yes" },
+  { capability: "Context-aware", keyword: "no", generic: "partial", blackSwan: "yes" },
+  { capability: "Severity-aware", keyword: "no", generic: "partial", blackSwan: "yes" },
+  { capability: "Pattern-aware (cross-message)", keyword: "no", generic: "no", blackSwan: "yes" },
+  { capability: "Dataset & bias auditing", keyword: "no", generic: "no", blackSwan: "yes" },
+  { capability: "Coded / euphemistic detection", keyword: "no", generic: "partial", blackSwan: "yes" },
+  { capability: "Governance-ready audit trail", keyword: "partial", generic: "no", blackSwan: "yes" },
+  { capability: "Built for gendered harm", keyword: "no", generic: "no", blackSwan: "yes" },
 ];
 
 function Mark({ level }: { level: Level }) {
@@ -58,9 +58,9 @@ export function Differentiation() {
     <section className="relative px-4 py-20 sm:px-6 lg:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Why Aegis"
+          eyebrow="Why Black Swan"
           title="Built for what blunt filters and generic moderation miss."
-          description="Keyword lists catch slurs. General-purpose moderation catches the obvious. Aegis is engineered for the contextual, escalating, high-stakes reality of gendered harm."
+          description="Keyword lists catch slurs. General-purpose moderation catches the obvious. Black Swan is engineered for the contextual, escalating, high-stakes reality of gendered harm."
         />
 
         <ScrollReveal delay={120}>
@@ -80,7 +80,7 @@ export function Differentiation() {
                   <TableHead className="py-4 text-center">
                     <span className="inline-flex items-center justify-center gap-1.5 rounded-full bg-violet/10 px-3 py-1">
                       <Logo withWordmark={false} className="[&_svg]:size-4" />
-                      <span className="font-medium text-foreground">Aegis</span>
+                      <span className="font-medium text-foreground">Black Swan</span>
                     </span>
                   </TableHead>
                 </TableRow>
@@ -104,7 +104,7 @@ export function Differentiation() {
                       <Mark level={row.generic} />
                     </TableCell>
                     <TableCell className="bg-violet/[0.04] py-3.5 text-center">
-                      <Mark level={row.aegis} />
+                      <Mark level={row.blackSwan} />
                     </TableCell>
                   </TableRow>
                 ))}

@@ -79,7 +79,7 @@ export function Architecture() {
         <SectionHeading
           eyebrow="Architecture"
           title="A risk engine that sits in your pipeline, not on the sidelines."
-          description="Point any text surface at Aegis and receive structured, explainable risk — ready to route into the systems your teams already run."
+          description="Point any text surface at Black Swan and receive structured, explainable risk — ready to route into the systems your teams already run."
         />
 
         <ScrollReveal delay={120}>
@@ -110,7 +110,7 @@ export function Architecture() {
                   <Cpu className="size-6" />
                 </span>
                 <p className="mt-3 font-display text-lg font-semibold text-foreground">
-                  Aegis Risk Engine
+                  Black Swan Risk Engine
                 </p>
                 <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
                   Context-aware analysis across 8 dimensions

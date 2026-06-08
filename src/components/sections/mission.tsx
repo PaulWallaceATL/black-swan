@@ -73,7 +73,7 @@ export function Mission() {
 
         <ScrollReveal delay={200}>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Aegis exists to give that layer measurable form — turning gendered
+            Black Swan exists to give that layer measurable form — turning gendered
             harm from something noticed too late into something that can be seen,
             scored, and stopped while there is still time to act.
           </p>

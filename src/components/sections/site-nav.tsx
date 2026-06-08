@@ -48,7 +48,7 @@ export function SiteNav() {
         <a
           href="#top"
           className="rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-          aria-label="Aegis home"
+          aria-label="Black Swan home"
         >
           <Logo />
         </a>

@@ -69,7 +69,7 @@ export function SiteFooter() {
             governance.
           </p>
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Aegis. All rights reserved.
+            © {new Date().getFullYear()} Black Swan. All rights reserved.
           </p>
         </div>
       </div>

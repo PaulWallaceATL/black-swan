@@ -47,7 +47,7 @@ export function Hero() {
 
         <ScrollReveal delay={120} className="mt-6 max-w-2xl">
           <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Aegis is a proprietary language intelligence model trained to
+            Black Swan is a proprietary language intelligence model trained to
             identify, measure, and rate{" "}
             <GradientText className="font-medium">misogyny risk</GradientText>{" "}
             across digital content, conversations, datasets, and AI outputs.

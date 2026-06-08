@@ -5,14 +5,14 @@ import { useMemo, useRef, Suspense, useEffect } from "react";
 import * as THREE from "three";
 
 /**
- * Aegis scan carousel.
+ * Black Swan scan carousel.
  *
  * Adapted from React Bits Pro "hero-7" (3D rotating carousel + glow scan bar +
  * particles). Instead of stock photos, each plane is a content card rendered to
  * a <canvas>. A dual-texture shader shows the *raw* content on the unscanned
  * (left) side of the glow bar and the *analyzed* version — misogynistic phrases
  * highlighted, with a risk badge + confidence — on the scanned (right) side.
- * The glow bar is the Aegis risk scanner resolving harm in real time.
+ * The glow bar is the Black Swan risk scanner resolving harm in real time.
  */
 
 type Band = "Elevated" | "Severe" | "Critical";

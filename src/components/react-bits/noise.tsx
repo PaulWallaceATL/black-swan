@@ -6,7 +6,7 @@ export function Noise({ className }: { className?: string }) {
     <div
       aria-hidden="true"
       className={cn(
-        "pointer-events-none fixed inset-0 z-[1] aegis-noise opacity-[0.035] mix-blend-soft-light",
+        "pointer-events-none fixed inset-0 z-[1] swan-noise opacity-[0.035] mix-blend-soft-light",
         className
       )}
     />

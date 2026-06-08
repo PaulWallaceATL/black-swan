@@ -59,9 +59,9 @@ export function UseCases() {
     <section id="use-cases" className="relative px-4 py-20 sm:px-6 lg:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Where Aegis works"
+          eyebrow="Where Black Swan works"
           title="One risk layer, deployed across the safety stack."
-          description="From inbound moderation to model governance, Aegis gives every team a shared, defensible measure of misogyny risk."
+          description="From inbound moderation to model governance, Black Swan gives every team a shared, defensible measure of misogyny risk."
         />
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -50,7 +50,7 @@ export function CtaSection() {
             <SectionHeading
               eyebrow="Request access"
               title="Build safer systems with misogyny risk intelligence."
-              description="Tell us where gendered harm shows up in your stack. We'll show you how Aegis scores it — and how to act before it scales."
+              description="Tell us where gendered harm shows up in your stack. We'll show you how Black Swan scores it — and how to act before it scales."
             />
             <ScrollReveal
               delay={140}
@@ -63,7 +63,7 @@ export function CtaSection() {
                 Request Access
               </a>
               <a
-                href="mailto:team@aegis.ai"
+                href="mailto:team@blackswan.ai"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
                   "h-11 px-5"
@@ -89,7 +89,7 @@ export function CtaSection() {
                     Request received
                   </h3>
                   <p className="max-w-sm text-sm text-muted-foreground">
-                    Thank you. Our team will reach out to scope an Aegis
+                    Thank you. Our team will reach out to scope a Black Swan
                     evaluation for your organization.
                   </p>
                   <Button

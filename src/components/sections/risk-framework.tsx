@@ -102,7 +102,7 @@ export function RiskFramework() {
         <SectionHeading
           eyebrow="Risk framework"
           title="One score, decomposed into auditable dimensions."
-          description="Aegis rates content across eight configurable dimensions, each scored 0–100 with confidence. Tune weights and thresholds to your policy — every output is explainable and audit-ready."
+          description="Black Swan rates content across eight configurable dimensions, each scored 0–100 with confidence. Tune weights and thresholds to your policy — every output is explainable and audit-ready."
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.4fr_1fr]">

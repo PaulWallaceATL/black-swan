@@ -41,7 +41,7 @@ export function Product() {
             <SectionHeading
               eyebrow="The model"
               title="A language model built for one mandate: gendered harm."
-              description="Aegis is not a generic classifier with a misogyny label bolted on. It is purpose-trained to reason about gendered hostility with the nuance the problem demands."
+              description="Black Swan is not a generic classifier with a misogyny label bolted on. It is purpose-trained to reason about gendered hostility with the nuance the problem demands."
             />
             <ScrollReveal
               delay={160}
@@ -53,7 +53,7 @@ export function Product() {
                   Operates at the data layer
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Aegis evaluates content before it reaches users, models, or
+                  Black Swan evaluates content before it reaches users, models, or
                   downstream systems — intercepting risk upstream, not after harm
                   has already landed.
                 </p>
