@@ -77,10 +77,10 @@ export function Hero() {
         </ScrollReveal>
       </div>
 
-      {/* Scanning carousel — fills the lower stage */}
+      {/* Scanning carousel — fills the lower stage. Drag/swipe to rotate. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-10 translate-y-[22%] sm:translate-y-[20%]"
+        className="absolute inset-0 z-10 translate-y-[22%] sm:translate-y-[20%]"
       >
         <ScanCarousel />
       </div>

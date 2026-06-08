@@ -2,6 +2,8 @@ import { EyeOff, Crosshair, TrendingUp } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionHeading } from "@/components/section-heading";
 import { ScrollReveal } from "@/components/react-bits/scroll-reveal";
+import { SceneMount } from "@/components/react-bits/scene-mount";
+import SynapticShift from "@/components/react-bits/synaptic-shift";
 
 const PROBLEMS = [
   {
@@ -28,8 +30,18 @@ export function Problem() {
   return (
     <section
       id="problem"
-      className="relative px-4 py-20 sm:px-6 lg:py-28"
+      className="relative overflow-hidden px-4 py-20 sm:px-6 lg:py-28"
     >
+      <SceneMount className="pointer-events-none absolute inset-0 -z-10 opacity-[0.16]">
+        <SynapticShift
+          color="#b567e0"
+          speed={0.4}
+          scale={0.55}
+          intensity={1.7}
+          complexity={9}
+        />
+      </SceneMount>
+
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="The detection gap"

@@ -660,7 +660,20 @@ function ResizeHandler() {
   return null;
 }
 
-function CarouselScene() {
+type DragControl = {
+  rotation: number;
+  velocity: number;
+  dragging: boolean;
+  lastX: number;
+};
+
+const AUTO_SPEED = 0.16;
+
+function CarouselScene({
+  control,
+}: {
+  control: React.RefObject<DragControl>;
+}) {
   const rotationRef = useRef(0);
   const radius = 4.7;
 
@@ -682,8 +695,11 @@ function CarouselScene() {
     };
   }, [textures]);
 
-  useFrame((state) => {
-    rotationRef.current = state.clock.elapsedTime * 0.16;
+  // Auto-rotation + inertia are advanced by the parent rAF loop (which owns
+  // the control ref). Here we only mirror the shared rotation onto the local
+  // ref the carousel items read from.
+  useFrame(() => {
+    rotationRef.current = control.current.rotation;
   });
 
   return (
@@ -705,18 +721,83 @@ function CarouselScene() {
 }
 
 export function ScanCarousel() {
+  const control = useRef<DragControl>({
+    rotation: 0,
+    velocity: 0,
+    dragging: false,
+    lastX: 0,
+  });
+
+  useEffect(() => {
+    let raf = 0;
+    let last = performance.now();
+    const tick = (now: number) => {
+      const c = control.current;
+      // Clamp delta so background tabs don't cause a rotation jump on resume.
+      const dt = Math.min((now - last) / 1000, 0.05);
+      last = now;
+      if (!c.dragging) {
+        c.rotation += AUTO_SPEED * dt + c.velocity;
+        c.velocity *= 0.94;
+        if (Math.abs(c.velocity) < 1e-5) c.velocity = 0;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const c = control.current;
+    c.dragging = true;
+    c.lastX = e.clientX;
+    c.velocity = 0;
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const c = control.current;
+    if (!c.dragging) return;
+    const dx = e.clientX - c.lastX;
+    c.lastX = e.clientX;
+    // Drag follows the finger: swipe right spins the ring toward you.
+    const step = -dx * 0.006;
+    c.rotation += step;
+    c.velocity = step;
+  };
+
+  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
+    const c = control.current;
+    if (!c.dragging) return;
+    c.dragging = false;
+    e.currentTarget.releasePointerCapture?.(e.pointerId);
+  };
+
   return (
-    <Canvas
-      camera={{ position: [0, 0, 8], fov: 45 }}
-      dpr={[1, 2]}
-      frameloop="always"
-      gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
-      style={{ background: "transparent" }}
+    <div
+      className="h-full w-full cursor-grab touch-pan-y select-none active:cursor-grabbing"
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
+      onPointerLeave={endDrag}
     >
-      <ResizeHandler />
-      <Suspense fallback={null}>
-        <CarouselScene />
-      </Suspense>
-    </Canvas>
+      <Canvas
+        camera={{ position: [0, 0, 8], fov: 45 }}
+        dpr={[1, 2]}
+        frameloop="always"
+        gl={{
+          alpha: true,
+          antialias: true,
+          powerPreference: "high-performance",
+        }}
+        style={{ background: "transparent" }}
+      >
+        <ResizeHandler />
+        <Suspense fallback={null}>
+          <CarouselScene control={control} />
+        </Suspense>
+      </Canvas>
+    </div>
   );
 }

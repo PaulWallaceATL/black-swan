@@ -1,6 +1,9 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { Eyebrow } from "@/components/brand";
 import { ScrollReveal } from "@/components/react-bits/scroll-reveal";
+import StaggeredText from "@/components/react-bits/staggered-text";
 
 export function SectionHeading({
   eyebrow,
@@ -24,9 +27,23 @@ export function SectionHeading({
       )}
     >
       <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
-        {title}
-      </h2>
+      {typeof title === "string" ? (
+        <StaggeredText
+          as="h2"
+          text={title}
+          segmentBy="words"
+          delay={26}
+          duration={0.6}
+          className={cn(
+            "max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl",
+            align === "center" && "mx-auto justify-center"
+          )}
+        />
+      ) : (
+        <h2 className="max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
+          {title}
+        </h2>
+      )}
       {description && (
         <p
           className={cn(

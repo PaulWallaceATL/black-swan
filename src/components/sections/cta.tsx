@@ -11,6 +11,19 @@ import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/section-heading";
 import { ScrollReveal } from "@/components/react-bits/scroll-reveal";
 import { GridOverlay } from "@/components/react-bits/grid-overlay";
+import { SceneMount } from "@/components/react-bits/scene-mount";
+import SilkWaves from "@/components/react-bits/silk-waves";
+
+const SILK_COLORS = [
+  "#120d18",
+  "#1c1426",
+  "#2a1a3e",
+  "#4a2c6e",
+  "#6d28d9",
+  "#8b5cf6",
+  "#a06bff",
+  "#c9a9ff",
+];
 
 export function CtaSection() {
   const [submitted, setSubmitted] = React.useState(false);
@@ -23,7 +36,13 @@ export function CtaSection() {
   }
 
   return (
-    <section id="access" className="relative px-4 py-20 sm:px-6 lg:py-28">
+    <section
+      id="access"
+      className="relative overflow-hidden px-4 py-20 sm:px-6 lg:py-28"
+    >
+      <SceneMount className="pointer-events-none absolute inset-0 -z-10 opacity-30">
+        <SilkWaves colors={SILK_COLORS} speed={0.5} scale={2} opacity={0.85} />
+      </SceneMount>
       <GridOverlay className="opacity-60" />
       <div className="mx-auto max-w-6xl">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">

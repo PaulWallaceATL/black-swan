@@ -12,6 +12,8 @@ import {
 import { SectionHeading } from "@/components/section-heading";
 import { ScrollReveal } from "@/components/react-bits/scroll-reveal";
 import { SignalFlow } from "@/components/react-bits/signal-flow";
+import { SceneMount } from "@/components/react-bits/scene-mount";
+import GradientBars from "@/components/react-bits/gradient-bars";
 
 const INPUTS = [
   { icon: FileText, label: "Content" },
@@ -58,7 +60,21 @@ function NodeChip({
 
 export function Architecture() {
   return (
-    <section id="architecture" className="relative px-4 py-20 sm:px-6 lg:py-28">
+    <section
+      id="architecture"
+      className="relative overflow-hidden px-4 py-20 sm:px-6 lg:py-28"
+    >
+      <SceneMount className="pointer-events-none absolute inset-0 -z-10 opacity-25">
+        <GradientBars
+          color="#8b5cf6"
+          backgroundColor="#120d18"
+          barCount={18}
+          speed={0.6}
+          vertical
+          opacity={0.7}
+        />
+      </SceneMount>
+
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Architecture"

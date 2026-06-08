@@ -1,5 +1,6 @@
 import { Logo } from "@/components/brand";
 import { Separator } from "@/components/ui/separator";
+import { BlurHighlight } from "@/components/react-bits/blur-highlight";
 
 const COLUMNS = [
   {
@@ -27,10 +28,16 @@ export function SiteFooter() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
           <div className="flex flex-col gap-4">
             <Logo />
-            <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
+            <BlurHighlight
+              highlightedBits={["misogyny risk"]}
+              highlightColor="rgba(160, 107, 255, 0.28)"
+              highlightClassName="text-foreground"
+              blurAmount={6}
+              className="max-w-xs text-sm leading-relaxed text-muted-foreground"
+            >
               The intelligence layer for detecting misogyny risk before harm
               scales.
-            </p>
+            </BlurHighlight>
           </div>
 
           {COLUMNS.map((col) => (
