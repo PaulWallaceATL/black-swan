@@ -33,20 +33,20 @@ export function ScrollReveal({
   const { ref, inView } = useInView<HTMLElement>();
   const Comp = as as React.ElementType;
 
-  return (
-    <Comp
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms`, ...style }}
-      className={cn(
+  return React.createElement(
+    Comp,
+    {
+      ref,
+      style: { transitionDelay: `${delay}ms`, ...style },
+      className: cn(
         "transition-all duration-700 ease-out will-change-transform motion-reduce:transition-none",
         inView
           ? "opacity-100 translate-x-0 translate-y-0"
           : cn("opacity-0", offsets[direction]),
         className
-      )}
-      {...props}
-    >
-      {children}
-    </Comp>
+      ),
+      ...props,
+    },
+    children
   );
 }
