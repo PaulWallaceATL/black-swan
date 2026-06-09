@@ -68,6 +68,15 @@ export function SiteNav() {
 
         <div className="flex items-center gap-2">
           <a
+            href="/console"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              "hidden sm:inline-flex"
+            )}
+          >
+            Launch console
+          </a>
+          <a
             href="#access"
             className={cn(
               buttonVariants({ variant: "default", size: "lg" }),
@@ -118,10 +127,23 @@ export function SiteNav() {
                 <SheetClose
                   render={
                     <a
+                      href="/console"
+                      className={cn(
+                        buttonVariants({ variant: "outline", size: "lg" }),
+                        "mt-3 w-full"
+                      )}
+                    />
+                  }
+                >
+                  Launch console
+                </SheetClose>
+                <SheetClose
+                  render={
+                    <a
                       href="#access"
                       className={cn(
                         buttonVariants({ variant: "default", size: "lg" }),
-                        "mt-3 w-full"
+                        "mt-1.5 w-full"
                       )}
                     />
                   }

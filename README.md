@@ -1,5 +1,38 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## AI features
+
+The marketing site is paired with a live analysis **Console** at `/console` that runs
+content through the Black Swan engine. It accepts **text, links, images, audio, video,
+and full conversations**, and produces:
+
+| Module | What it does |
+| --- | --- |
+| **Transformation Engine** | Core misogyny risk score, band, confidence, per-category breakdown, and signals (always runs). |
+| **Personal Lens** | Tailors the reading to the user's own context, goals, and sensitivity. |
+| **Narrative Explanation Engine** | Plain-language, educational breakdown of *why* it scored as it did. |
+| **Response Coach** | Practical, safe next steps with example scripts and escalation guidance. |
+| **Misogynoir Lens** | Intersectional analysis (misogyny + anti-Black racism). |
+| **Conversation Analyzer** | Per-turn risk and escalation dynamics across a multi-message thread. |
+| **Pattern Tracker** | Longitudinal trends, recurring categories, and a risk timeline (stored locally per device). |
+
+### Environment variables
+
+Add these in **Vercel → Project → Settings → Environment Variables** and to a local
+`.env.local` (see `.env.example`):
+
+| Name | Required | Notes |
+| --- | --- | --- |
+| `OPENAI_API_KEY` | ✅ | Your OpenAI key (`sk-...`). Never prefix with `NEXT_PUBLIC_`. |
+| `OPENAI_ANALYSIS_MODEL` | optional | Defaults to `gpt-4o` (vision-capable). |
+| `OPENAI_TRANSCRIPTION_MODEL` | optional | Defaults to `whisper-1`. |
+
+> After adding env vars in Vercel, redeploy so they are injected into the build.
+
+The API lives at `POST /api/analyze`. The Pattern Tracker currently persists to
+`localStorage`; swap `src/lib/patterns.ts` for a database-backed implementation to
+enable multi-user, cross-device tracking.
+
 ## Getting Started
 
 First, run the development server:

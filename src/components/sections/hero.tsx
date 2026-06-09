@@ -66,13 +66,13 @@ export function Hero() {
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </a>
           <a
-            href="#framework"
+            href="/console"
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
               "h-11 px-5",
             )}
           >
-            View Risk Framework
+            Try the live engine
           </a>
         </ScrollReveal>
       </div>
